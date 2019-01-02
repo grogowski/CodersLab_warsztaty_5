@@ -6,10 +6,9 @@ import pl.coderslab.model.Book;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class MemoryBookService {
+public class MemoryBookService implements BookService{
     private List<Book> list;
 
     public MemoryBookService() {
