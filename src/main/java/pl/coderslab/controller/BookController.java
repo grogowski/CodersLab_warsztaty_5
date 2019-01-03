@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Book;
 import pl.coderslab.service.BookService;
-import pl.coderslab.service.MemoryBookService;
 
 import java.util.List;
 
@@ -15,12 +14,12 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("")
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Book> booksList(){
         return bookService.getList();
     }
 
-    @RequestMapping("/{bookId}")
+    @RequestMapping(value = "/{bookId}", method = RequestMethod.GET)
     private Book getBookById(@PathVariable("bookId") long bookId) {
         return bookService.getBookById(bookId);
     }
